@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Url Shortner</title>
+    <style>
+      h1 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        font-size: 100px;
+      }
+      #urlContainer form {
+        font-size: 40px;
+      }
+      input {
+        height: 30px;
+        width: 450px;
+        border: 2px solid rgb(27, 25, 25);
+        border-radius: 10px;
+        font-size: 15px;
+      }
+      #button {
+        border: 2px solid black;
+        height: 40px;
+        width: 60px;
+        cursor: pointer;
+      }
+      button{
+        margin-left: 690px;
+      }
+
+      h2 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sign Up</h1>
+    <div id="urlContainer">
+      <form method="post" action="/user">
+        <label for="Name">Name</label>
+        <input
+          id="Name"
+          type="text"
+          name="name"
+          placeholder="john Doe"
+        />
+        <br />
+        <label for="redirectUrl">Email</label>
+        <input
+          id="email"
+          type="text"
+          name="email"
+          placeholder="johnDoe@gmail.com"
+        />
+        <br />
+        <label for="password">password</label>
+        <input
+          id="password"
+          type="text"
+          name="password"
+          placeholder="johnDoe@123"
+        />
+        <br />
+
+        <input id="button" type="submit" value="submit" />
+      </form>
+      
+    </div>
+  </body>
+</html>

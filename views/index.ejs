@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Url Shortner</title>
+    <style>
+      h1 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        font-size: 100px;
+      }
+      #urlContainer form {
+        font-size: 50px;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        gap: 30px;
+        margin-left: 300px;
+      }
+      input {
+        height: 30px;
+        width: 450px;
+        border: 2px solid rgb(27, 25, 25);
+        border-radius: 10px;
+        font-size: 15px;
+      }
+      #button {
+        border: 2px solid black;
+        height: 40px;
+        width: 60px;
+        cursor: pointer;
+      }
+      h2 {
+        text-align: center;
+      }
+      .container{
+        font-size: 30px;
+        margin-left: 360px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Url Shortner</h1>
+    <% if(locals.url) { %>
+    <h2>Generated Url -> http://localhost:3000/urls/<%= url %></h2>
+    <%}%>
+    <div id="urlContainer">
+      <form method="post" action="/url">
+        <label for="redirectUrl">Enter your URL</label>
+        <input
+          id="redirectUrl"
+          type="text"
+          name="url"
+          placeholder="https://example.com"
+        />
+        <input id="button" type="submit" value="submit" />
+      </form>
+       <hr>
+      <div class="container" style="margin-top: 30px">
+        <% if (locals.urls) { %>
+        <table>
+          <thead>
+            <th>S. No</th>
+            <th>ShortID</th>
+            <th>Redirect</th>
+            <th>Clicks</th>
+          </thead>
+          <tbody>
+            <% urls.forEach((url, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= url.shortUrl %></td>
+              <td><%= url.redirectUrl %></td>
+              <td><%= url.visitHistory.length %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
